@@ -47,9 +47,19 @@ h3 {
 }
 
 #current-temp {
-  font-size: 40px;
+  font-size: 50px;
   color: #c54c82;
   font-family: "PT Mono", monospace;
+}
+#celsius {
+  position: relative;
+  font-size: 16px;
+  top: -20px;
+}
+#fahrenheit {
+  position: relative;
+  font-size: 16px;
+  top: -20px;
 }
 .credits {
   text-align: center;
