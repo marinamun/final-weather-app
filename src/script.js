@@ -3,7 +3,15 @@ let header3 = document.querySelector("h3");
 
 let currentTime = new Date();
 
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 let day = days[currentTime.getDay()];
 
 let hour = currentTime.getHours();
