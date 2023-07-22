@@ -49,3 +49,8 @@ h3 {
   color: #c54c82;
   font-family: "PT Mono", monospace;
 }
+.credits {
+  text-align: center;
+  font-size: 10px;
+  line-height: 1px;
+}
