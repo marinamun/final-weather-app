@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/feab1987b5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>MarinaMun Weather App</title>
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <script></script>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="myForm">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Type your city"
+            autofocus="on"
+          />
+          <input type="submit" value="Enter" />
+          <input type="submit" value="Current Location" id="current-button" />
+        </div>
+
+        <div class="listSmall">
+          <div class="row">
+            <div class="col-6">
+              <h1>Berlin</h1>
+              <br />
+              <h3 id="dateHour">20ºC</h3>
+              <br />
+              <p>
+                <span id="current-temp">17ºC</span>
+              </p>
+            </div>
+
+            <div class="col-6">
+              <div class="rightC">
+                <p>
+                  <span id="weather-description">☀ Sunny</span>
+                  <br />
+                  Humimidity: <span id="humidity">10</span>%
+                  <br />
+                  Wind: <span id="wind">5</span>km/h
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="listCities">
+          <div class="row">
+            <div class="col-2">
+              <strong> Fri </strong>
+              <br />
+              <i class="fa-solid fa-sun"></i>
+              <br />
+              22ºC
+            </div>
+            <div class="col-2">
+              <strong> Sat</strong> <br />
+              <i class="fa-solid fa-cloud-sun"></i>
+              <br />
+              19ºC
+            </div>
+            <div class="col-2">
+              <strong>Sun </strong> <br />
+              <i class="fa-solid fa-cloud-sun-rain"></i>
+              <br />
+              15ºC
+            </div>
+            <div class="col-2">
+              <strong>Mon </strong>
+              <br />
+
+              <i class="fa-solid fa-sun"></i>
+              <br />
+              19ºC
+            </div>
+            <div class="col-2">
+              <strong> Tu</strong> <br />
+              <i class="fa-solid fa-cloud-sun"></i>
+              <br />
+              20ºC
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="src/script.js"></script>
+  </body>
+</html>
