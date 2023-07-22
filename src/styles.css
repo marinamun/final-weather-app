@@ -1,6 +1,8 @@
 .container {
   padding: 30px;
-  margin: 30px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 15px;
   border: 1px solid black;
   border-radius: 30px;
   background: #fdfdcb;
