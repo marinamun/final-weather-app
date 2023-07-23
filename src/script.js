@@ -52,9 +52,9 @@ https: function showWeather(response) {
   let headerCity = document.querySelector("h1");
   headerCity.innerHTML = response.data.name;
 
-  let searchedTemp = Math.round(response.data.main.temp);
+  let searchedCelsiusTemp = Math.round(response.data.main.temp);
   let headerTemp = document.querySelector("#current-temp");
-  headerTemp.innerHTML = `${searchedTemp}ºC`;
+  headerTemp.innerHTML = `${searchedCelsiusTemp}`;
 
   let humidityLine = document.querySelector("#humidity");
   humidityLine.innerHTML = response.data.main.humidity;
@@ -71,6 +71,8 @@ https: function showWeather(response) {
     "src",
     `https://openweathermap.org/img/wn/${iconID}@2x.png`
   );
+
+  celsiusTemp = Math.round(response.data.main.temp);
 }
 
 ////Add current temperature button and make it work////
@@ -89,4 +91,36 @@ function getPosition(position) {
   let lat = position.coords.latitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
+}
+
+//Unit convertor
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let tempNumber = document.querySelector("#current-temp");
+  tempNumber.innerHTML = Math.round(fahrenheitTemp);
+
+  //remove the active class from celsius and add it to fahrenheit
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+let celsiusTemp = null;
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let tempNumber = document.querySelector("#current-temp");
+  tempNumber.innerHTML = celsiusTemp;
+
+  //remove the active class from fahrenheit and add it to celsius
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }

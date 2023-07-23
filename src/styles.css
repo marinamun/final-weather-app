@@ -55,11 +55,13 @@ h3 {
   position: relative;
   font-size: 16px;
   top: -20px;
+  text-decoration: none;
 }
 #fahrenheit {
   position: relative;
   font-size: 16px;
   top: -20px;
+  text-decoration: none;
 }
 .credits {
   text-align: center;
@@ -71,5 +73,11 @@ h3 {
   height: 80px;
   vertical-align: top;
   width: 80px;
-  filter: drop-shadow(0 0 0.75rem #c54c82);
+  filter: drop-shadow(0 0 0.75rem #fd99ff);
+}
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
 }
