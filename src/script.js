@@ -13,7 +13,6 @@ let days = [
   "Saturday",
 ];
 let day = days[currentTime.getDay()];
-
 let hour = currentTime.getHours();
 let minutes = currentTime.getMinutes();
 if (minutes < 10) {
@@ -23,6 +22,7 @@ if (minutes < 10) {
 let displayDate = `${day}, ${hour}:${minutes}`;
 
 header3.innerHTML = displayDate;
+
 ////////////////////////////////////
 
 // SEARCH FUNCTION. prevents the default behaviour of refreshing the page after submitting a form and has access
@@ -45,9 +45,10 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
+//
 
 //SHOWTEMP FUNCTION. Shows the data received from the api into our website headings.
-function showWeather(response) {
+https: function showWeather(response) {
   let headerCity = document.querySelector("h1");
   headerCity.innerHTML = response.data.name;
 
@@ -63,6 +64,13 @@ function showWeather(response) {
 
   let generalWeatherLine = document.querySelector("#weather-description");
   generalWeatherLine.innerHTML = response.data.weather[0].main;
+
+  let weatherIcon = document.querySelector("#icon");
+  let iconID = response.data.weather[0].icon;
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${iconID}@2x.png`
+  );
 }
 
 ////Add current temperature button and make it work////
