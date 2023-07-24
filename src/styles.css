@@ -34,7 +34,7 @@ h3 {
 .fa-solid {
   color: #c54c82;
 }
-.listCities {
+.weatherForecast {
   font-family: "PT Mono", monospace;
 }
 .tempButton {
@@ -80,4 +80,12 @@ h3 {
   cursor: default;
 }
 .active:hover {
+}
+.weatherForecastDate {
+  color: blue;
+  font-weight: bold;
+  
+}
+.weatherForecastTempMin{
+  opacity: 0.6;
 }
