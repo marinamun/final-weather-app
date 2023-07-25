@@ -124,3 +124,33 @@ function showCelsiusTemp(event) {
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
 }
+
+//DISPLAY FORECAST
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML += `
+      <div class="col-2">
+        <div class="weatherForecastDate">${day}</div>
+
+        <i class="fa-solid fa-sun"></i>
+
+        <div class="weatherForecastTemp">
+          <span class="weatherForecastTempMin">5</span>
+          <span class="weatherForecastTempMax">/25</span>
+        </div>
+
+      </div>
+      `;
+  });
+
+  forecastHTML += "</div>"; // Moved this line inside the forEach loop.
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();

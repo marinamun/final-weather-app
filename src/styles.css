@@ -79,8 +79,7 @@ h3 {
   color: black;
   cursor: default;
 }
-.active:hover {
-}
+
 .weatherForecastDate {
   color: blue;
   font-weight: bold;
