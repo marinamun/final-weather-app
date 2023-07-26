@@ -152,3 +152,20 @@ function formatDay(timestamp) {
 
   return days[day];
 }
+
+//Add current temperature of Berlin as the welcome page.
+
+function showBerlinTemp(response) {
+  let berlinTemp = Math.round(response.data.main.temp);
+  let headerTemp = document.querySelector("#current-temp");
+  headerTemp.innerHTML = `${berlinTemp}`;
+}
+
+function getBerlinTemp() {
+  let apiKey = "2870469bf4e2d9e7713d0410e1682df1";
+  let city = "Berlin";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showBerlinTemp);
+}
+
+getBerlinTemp();

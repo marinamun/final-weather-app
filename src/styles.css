@@ -83,8 +83,7 @@ h3 {
 .weatherForecastDate {
   color: blue;
   font-weight: bold;
-  
 }
-.weatherForecastTempMin{
+.weatherForecastTempMin {
   opacity: 0.6;
 }
