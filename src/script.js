@@ -48,7 +48,7 @@ function searchCity(city) {
 //
 
 //SHOWTEMP FUNCTION. Shows the data received from the api into our website headings.
-https: function showWeather(response) {
+function showWeather(response) {
   let headerCity = document.querySelector("h1");
   headerCity.innerHTML = response.data.name;
 
@@ -73,6 +73,16 @@ https: function showWeather(response) {
   );
 
   celsiusTemp = Math.round(response.data.main.temp);
+
+  //call a function to get from there lat and long to call the function of forecast that requires them
+  getForecast(response.data.coord);
+}
+
+function getForecast(coordinates) {
+  let apiKey = "f81614abe2395d5dfecd45b9298041de";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 ////Add current temperature button and make it work////
@@ -127,30 +137,49 @@ function showCelsiusTemp(event) {
 
 //DISPLAY FORECAST
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
 
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forecastHTML += `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">
-        <div class="weatherForecastDate">${day}</div>
+        <div class="weatherForecastDate">${formatDay(forecastDay.dt)}</div>
 
-        <i class="fa-solid fa-sun"></i>
+        <img src="https://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"/>
 
         <div class="weatherForecastTemp">
-          <span class="weatherForecastTempMin">5</span>
-          <span class="weatherForecastTempMax">/25</span>
+          <span class="weatherForecastTempMin">${Math.round(
+            forecastDay.temp.min
+          )}</span>
+          <span class="weatherForecastTempMax">/${Math.round(
+            forecastDay.temp.max
+          )}</span>
         </div>
 
       </div>
       `;
+    }
   });
 
-  forecastHTML += "</div>"; // Moved this line inside the forEach loop.
+  forecastHTML = forecastHTML + "</div>"; // Moved this line inside the forEach loop.
   forecastElement.innerHTML = forecastHTML;
 }
 
-displayForecast();
+//Now the forecast is displayed with many numbers instead of the names of the week, so we make a function to fix it.
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
