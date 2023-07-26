@@ -72,8 +72,6 @@ function showWeather(response) {
     `https://openweathermap.org/img/wn/${iconID}@2x.png`
   );
 
-  celsiusTemp = Math.round(response.data.main.temp);
-
   //call a function to get from there lat and long to call the function of forecast that requires them
   getForecast(response.data.coord);
 }
@@ -103,37 +101,8 @@ function getPosition(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
-//Unit convertor
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  let tempNumber = document.querySelector("#current-temp");
-  tempNumber.innerHTML = Math.round(fahrenheitTemp);
-
-  //remove the active class from celsius and add it to fahrenheit
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-}
-
-let celsiusTemp = null;
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", showCelsiusTemp);
-
-function showCelsiusTemp(event) {
-  event.preventDefault();
-  let tempNumber = document.querySelector("#current-temp");
-  tempNumber.innerHTML = celsiusTemp;
-
-  //remove the active class from fahrenheit and add it to celsius
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-}
+//Unit convertor: it's not worth it to do it, too complicated and useless. better to build 2 different apps, one for countries with F
+//and other for countries with C.
 
 //DISPLAY FORECAST
 
