@@ -1,18 +1,58 @@
+body {
+  background-image: url("https://images.unsplash.com/photo-1517315003714-a071486bd9ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .container {
   padding: 30px;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 15px;
-  border: 1px solid black;
+  border: 1px solid #c54c82;
   border-radius: 30px;
   background: #fdfdcb;
+  filter: drop-shadow(0 0 0.75rem #fd99ff);
 }
+
+#city-input {
+  width: 50%;
+  text-indent: 20px;
+  border: 1px;
+  border-radius: 20px;
+  height: 50px;
+}
+#enter-button {
+  width: 20%;
+  color: #ef89a4;
+  border: 1.5px solid;
+  border-radius: 20px;
+  height: 50px;
+  background-color: white;
+  border-color: #ef89a4;
+}
+#current-button {
+  width: 20%;
+  color: #ef89a4;
+  border: 1.5px solid;
+  border-radius: 20px;
+  height: 50px;
+  background-color: white;
+  border-color: #ef89a4;
+}
+#enter-button:hover {
+  background-color: #ef89a4;
+  color: white;
+}
+#current-button:hover {
+  background-color: #ef89a4;
+  color: white;
+}
+
 .myForm {
   font-family: "PT Mono", monospace;
 }
-i:hover {
-  font-size: 30px;
-}
+
 h1 {
   color: #c54c82;
   padding: 0px;
@@ -50,19 +90,19 @@ h3 {
   font-size: 50px;
   color: #c54c82;
   font-family: "PT Mono", monospace;
+  text-shadow: 1px 1px 2px white;
 }
 #celsius {
   position: relative;
-  font-size: 16px;
+  font-size: 20px;
   top: -20px;
   text-decoration: none;
+  font-family: "PT Mono", monospace;
+  color: #c54c82;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px white;
 }
-#fahrenheit {
-  position: relative;
-  font-size: 16px;
-  top: -20px;
-  text-decoration: none;
-}
+
 .credits {
   text-align: center;
   font-size: 10px;
@@ -81,8 +121,9 @@ h3 {
 }
 
 .weatherForecastDate {
-  color: blue;
+  color: #0385b3;
   font-weight: bold;
+  font-size: 20px;
 }
 .weatherForecastTempMin {
   opacity: 0.6;

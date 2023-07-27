@@ -33,11 +33,14 @@
           <input
             type="text"
             id="city-input"
-            placeholder="Type your city"
+            placeholder="Type your city👋🏼"
             autofocus="on"
+            
+            
+            
           />
-          <input type="submit" value="Enter" />
-          <input type="submit" value="Current Location" id="current-button" />
+          <input  type="submit" value="Enter" id="enter-button"/>
+          <input type="submit" value="🗺️Current Location" id="current-button" />
         </div>
 
         <div class="listSmall">
@@ -50,7 +53,7 @@
               <p>
                 <img
                   src="http://openweathermap.org/img/wn/03d@2x.png"
-                  id="icon"
+                  id="icon" width="20px"
                 />
                 <span id="current-temp"></span>
                 <span id="celsius">°C</span>
@@ -61,11 +64,11 @@
             <div class="col-6">
               <div class="rightC">
                 <p>
-                  <span id="weather-description">☀ Sunny</span>
+                  <span id="weather-description"></span>
                   <br />
-                  Humimidity: <span id="humidity">10</span>%
+                  <strong>Humidity: </strong><span id="humidity"></span>%
                   <br />
-                  Wind: <span id="wind">5</span>km/h
+                  <strong>Wind: </strong><span id="wind"></span>km/h
                 </p>
               </div>
             </div>

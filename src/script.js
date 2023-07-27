@@ -119,17 +119,19 @@ function displayForecast(response) {
         forecastHTML +
         `
       <div class="col-2">
-        <div class="weatherForecastDate">${formatDay(forecastDay.dt)}</div>
+        <div class="weatherForecastDate" style="text-align:center">${formatDay(
+          forecastDay.dt
+        )}</div>
 
         <img src="https://openweathermap.org/img/wn/${
           forecastDay.weather[0].icon
-        }@2x.png"/>
+        }@2x.png" style="width: 50px; height: 50px; display: block; margin: 0 auto;" />
 
-        <div class="weatherForecastTemp">
-          <span class="weatherForecastTempMin">${Math.round(
+        <div style="text-align:center" class="weatherForecastTemp">
+          <span style="font-size:20px" class="weatherForecastTempMin">${Math.round(
             forecastDay.temp.min
           )}</span>
-          <span class="weatherForecastTempMax">/${Math.round(
+          <span style="font-size:20px" class="weatherForecastTempMax">/${Math.round(
             forecastDay.temp.max
           )}</span>
         </div>
@@ -155,17 +157,26 @@ function formatDay(timestamp) {
 
 //Add current temperature of Berlin as the welcome page.
 
-function showBerlinTemp(response) {
+function showBerlinData(response) {
   let berlinTemp = Math.round(response.data.main.temp);
   let headerTemp = document.querySelector("#current-temp");
   headerTemp.innerHTML = `${berlinTemp}`;
+
+  let humidityLine = document.querySelector("#humidity");
+  humidityLine.innerHTML = response.data.main.humidity;
+
+  let windLine = document.querySelector("#wind");
+  windLine.innerHTML = Math.round(response.data.wind.speed);
+
+  let generalWeatherLine = document.querySelector("#weather-description");
+  generalWeatherLine.innerHTML = response.data.weather[0].main;
 }
 
 function getBerlinTemp() {
   let apiKey = "2870469bf4e2d9e7713d0410e1682df1";
   let city = "Berlin";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showBerlinTemp);
+  axios.get(apiUrl).then(showBerlinData);
 }
 
 getBerlinTemp();
